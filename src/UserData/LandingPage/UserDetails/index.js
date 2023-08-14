@@ -10,7 +10,7 @@ import Sidebar from "./Sidebar";
 
 const UserDetails = () => {
     const location = useLocation();
-    const { state } = location || {};
+    const { state = {} } = location || {};
     const { user = {}, users = [] } = state;
     const [currentUser, setCurrentUser] = useState(user);
     const [showDropDownData, setShowDropDownData] = useState(false);
@@ -44,12 +44,12 @@ const UserDetails = () => {
                             }
                         >
                             <img
-                                src={currentUser.profilepicture}
+                                src={currentUser?.profilepicture}
                                 alt="profile"
                                 className={styles.picture}
                             />
 
-                            {currentUser.name}
+                            {currentUser?.name}
                         </div>
                     </div>
                     <div className={styles.hr} />

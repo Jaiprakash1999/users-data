@@ -3,7 +3,7 @@ import useGetUsersDetails from "../hooks/useGetUsersDetail";
 import styles from "./styles.module.css";
 
 const LandingPage = () => {
-    const { data = {} } = useGetUsersDetails();
+    const { data = {}, loading = false } = useGetUsersDetails();
     const { users = [] } = data;
     const navigate = useNavigate();
 
@@ -15,26 +15,30 @@ const LandingPage = () => {
         <div className={styles.container}>
             <div className={styles.card}>
                 <div className={styles.header}>Select an account</div>
-                {users.map((user) => {
-                    return (
-                        <div
-                            className={styles.details}
-                            key={user.id}
-                            onClick={() => handleProfile(user)}
-                        >
-                            <div className={styles.card_item}>
-                                <img
-                                    src={user.profilepicture}
-                                    alt="user-name"
-                                    className={styles.user_image}
-                                />
-                                {user.name}
-                            </div>
+                {loading ? (
+                    <div className={styles.loader}> Loading...</div>
+                ) : (
+                    users.map((user) => {
+                        return (
+                            <div
+                                className={styles.details}
+                                key={user.id}
+                                onClick={() => handleProfile(user)}
+                            >
+                                <div className={styles.card_item}>
+                                    <img
+                                        src={user.profilepicture}
+                                        alt="user-name"
+                                        className={styles.user_image}
+                                    />
+                                    {user.name}
+                                </div>
 
-                            <div className={styles.hr} />
-                        </div>
-                    );
-                })}
+                                <div className={styles.hr} />
+                            </div>
+                        );
+                    })
+                )}
             </div>
         </div>
     );

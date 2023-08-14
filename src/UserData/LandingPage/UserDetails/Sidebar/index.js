@@ -3,7 +3,7 @@ import styles from "../styles.module.css";
 
 const Sidebar = ({ showDetails = "", setShowDetails = () => {} }) => {
     return (
-        <ul type="none">
+        <ul type="none" className={styles.side_navigation}>
             <li
                 onClick={() => setShowDetails("Profile")}
                 className={
@@ -40,6 +40,7 @@ const Sidebar = ({ showDetails = "", setShowDetails = () => {} }) => {
                 }
             >
                 ToDo
+                <div className={styles.to_do_border} />
             </li>
         </ul>
     );

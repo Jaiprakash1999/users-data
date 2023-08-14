@@ -7,35 +7,43 @@ const ChangeUserAccountModal = ({
     handleDropDownClick = () => {},
 }) => {
     const navigate = useNavigate();
+    const { id, name, email, profilepicture } = currentUser;
 
     return (
         <div className={styles.dropdown}>
             <div className={styles.img_container}>
                 <img
-                    src={currentUser.profilepicture}
+                    src={profilepicture}
                     alt="login_user_profile"
                     className={styles.image}
                 />
-                <div>{currentUser.name}</div>
-                <div className={styles.email_text}>{currentUser.email}</div>
+                <div>{name}</div>
+                <div className={styles.email_text}>{email}</div>
             </div>
             <div className={styles.rest_users}>
                 {users.map((user) => {
+                    const { name, id: itemUserId, profilepicture } = user || {};
                     return (
                         <div id="user.id">
-                            <div className={styles.bottom_border} />
-                            <div
-                                className={styles.profile}
-                                onClick={() => handleDropDownClick(user)}
-                            >
-                                <img
-                                    src={user.profilepicture}
-                                    alt="user_profile"
-                                    className={styles.picture}
-                                />
+                            {id === itemUserId ? null : (
+                                <div>
+                                    <div className={styles.bottom_border} />
+                                    <div
+                                        className={styles.profile}
+                                        onClick={() =>
+                                            handleDropDownClick(user)
+                                        }
+                                    >
+                                        <img
+                                            src={profilepicture}
+                                            alt="user_profile"
+                                            className={styles.picture}
+                                        />
 
-                                {user.name}
-                            </div>
+                                        {name}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     );
                 })}
