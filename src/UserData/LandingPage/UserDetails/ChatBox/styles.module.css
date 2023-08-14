@@ -1,0 +1,72 @@
+.card {
+    border-radius: 8px;
+    width: 20%;
+    border: 1px solid #0d80f2;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #fff;
+    box-shadow: 0px 0px 8px 0px rgba(98, 127, 172, 0.2);
+}
+.header {
+    padding: 8px;
+    height: 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background: #0d80f2;
+    cursor: pointer;
+}
+.header_text {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+.text {
+    font-size: 12px;
+    margin-left: 4px;
+}
+.arrow_icon {
+    display: flex;
+    transform: rotate(180deg);
+    transition: 0.2s ease-in-out;
+}
+.details {
+    margin-top: 4px;
+    padding: 0px 12px;
+}
+.hr {
+    border-bottom: 1px solid #e0e0e0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.user_image {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    margin-right: 12px;
+}
+.card_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.item {
+    display: flex;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    align-items: center;
+}
+.details:last-child .hr {
+    border: none;
+}
+.active_user {
+    height: 4px;
+    width: 4px;
+    border: 1px solid #32a852;
+    border-radius: 50%;
+    background: #32a852;
+}

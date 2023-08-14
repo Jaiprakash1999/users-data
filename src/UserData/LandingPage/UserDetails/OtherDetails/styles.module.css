@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    width: 100%;
+}
+.text {
+    color: #e0e0e0;
+    font-size: 60px;
+    font-weight: bolder;
+}
